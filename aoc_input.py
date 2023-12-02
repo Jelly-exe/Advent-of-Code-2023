@@ -1,4 +1,4 @@
-def aoc_input():
-    with open("input.txt", "r") as file:
+def aoc_input(file_name="input.txt"):
+    with open(file_name, "r") as file:
         for line in file:
             yield line.strip()
