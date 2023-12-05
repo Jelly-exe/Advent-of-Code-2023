@@ -4,7 +4,10 @@ import sys
 
 
 def get_answer():
-    return answers[pathlib.Path(sys.argv[0]).parts[-2]][pathlib.Path(sys.argv[0]).parts[-1]]
+    try:
+        return answers[pathlib.Path(sys.argv[0]).parts[-2]][pathlib.Path(sys.argv[0]).parts[-1]]
+    except:
+        return None
 
 
 answers = {
@@ -19,5 +22,9 @@ answers = {
     'day3': {
         'part1.py': 514969,
         'part2.py': None
-    }
+    },
+    'day4': {
+        'part1.py': 22897,
+        'part2.py': 5095824
+    },
 }
