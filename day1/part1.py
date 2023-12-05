@@ -1,17 +1,22 @@
+import re
+
 from icecream import ic
 from aoc_input import aoc_input
+from answers import get_answer
 
 
 def main(file_input):
     total = 0
 
     for line in file_input:
-        first_digit = next(char for char in line if char.isdigit())
-        last_digit = next(char for char in reversed(line) if char.isdigit())
-        total += int(first_digit + last_digit)
+        digits = re.findall(r'\d', line)
+        total += int(digits[0] + digits[-1])
 
     return total
 
 
 file = aoc_input()
-ic(main(file))
+aoc_answer = ic(main(file))
+correct_answer = get_answer()
+is_correct = correct_answer == aoc_answer if correct_answer else "Unknown"
+ic(is_correct)
